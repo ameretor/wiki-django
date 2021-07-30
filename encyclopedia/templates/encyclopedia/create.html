@@ -1,0 +1,11 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %} Create new entry {% endblock %}
+
+{% block body %}
+<h1>Add new entry to our Dwikipedia</h1>
+<form action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    {{ create_form }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+{% endblock %}

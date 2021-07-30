@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+{% block title %} Search Result {% endblock %}
+
+{% block body %}
+<h1>Didn't find what you searched. Check these out tho: </h1>
+<div>
+    <ul>
+        {% for title in related_title %}
+        {% csrf_token %}
+        <li><a href="{% url 'entry' title=title %}">{{ title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
